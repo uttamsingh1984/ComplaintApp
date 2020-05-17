@@ -1,1 +1,49 @@
 /* You can add global styles to this file, and also import other style files */
+@media (max-width: 575px) {
+    .search-section{        
+        margin-top:100px;        
+        width:100%;
+        padding: 10px;
+    }
+    .search-section input[type='text'] {                
+        width: 100%;        
+    }    
+}
+
+@media (min-width: 576px) and (max-width:767px){
+    .search-section{        
+        margin-top:100px;        
+        width:100%;
+        padding: 10px;
+    }
+    .search-section input[type='text'] {                
+        width: 100%;        
+    }    
+}
+@media (min-width: 768px) {
+    .search-section{
+        position: absolute;
+        top:10px;
+        left:400px;
+        width: auto;
+    }
+    .search-section input[type='text'] {        
+        width: 550px;        
+    }
+    .content{
+        min-height: 545px;
+    }    
+}
+
+
+
+
+
+
+
+
+.form-custom .form-control {
+    height: calc(1.5em + .5rem + 2px);
+    padding: .375rem .375rem;
+    font-size: 1rem;
+}

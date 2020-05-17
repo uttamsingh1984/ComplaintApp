@@ -1,0 +1,14 @@
+.complaint-link{
+    text-decoration: none;
+    color: black;
+}
+.complaint-list{
+    color: auto;
+}
+.complaint-list .card-title{
+    color: blue;
+}
+.complaint-list .card-subtitle{
+    color: blue;
+    font-size: smaller;
+}

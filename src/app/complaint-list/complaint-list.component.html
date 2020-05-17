@@ -1,0 +1,27 @@
+<div style="padding: 10px;">Search Results for <b>{{searchText}}</b></div>
+<div class="row">
+    <div class="col-9" > 
+        <div class="card complaint-list">
+            <div *ngFor="let complaint of complaintList">                                    
+                <div class="card-body">
+                    <a [routerLink]="['/complaint-details',complaint.id]" class="complaint-link">
+                        <h5 class="card-title">{{ complaint.title}}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">{{ complaint.createdBy}}</h6>
+                        <p class="card-text">
+                            {{complaint.content}}
+                        </p>
+                    </a>                
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-3">  
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{searchText}}</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">dfd</h6>
+                  <p class="card-text">dsfdsaf</p> 
+            </div>            
+        </div>        
+    </div>
+</div>

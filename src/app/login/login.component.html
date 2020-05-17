@@ -1,0 +1,43 @@
+<div>
+    <div class="row">
+        <div class="col-9">
+            <h4> Login </h4>            
+            <div class="row">                
+                <div class="col-12">                    
+                    <form [formGroup]="loginFrom" class="form-custom" (ngSubmit)="onSubmit()">
+                        
+                        <div class="row">
+                                                
+                        <div class="form-group col-6">
+                            <label for="Email">Email:</label>
+                            <input type="UserName" class="form-control" formControlName="UserName" placeholder="UserName" [ngClass]="{ 'is-invalid': isSubmitted && f.UserName.errors }" />
+                            <div *ngIf="isSubmitted && f.UserName.errors" class="invalid-feedback">
+                                <div *ngIf="f.UserName.errors.required">Email is required</div>
+                            </div>
+                        </div>
+                        <div class="form-group col-6">
+                            <label for="Password">Password:</label>
+                            <input type="password" class="form-control" formControlName="password" placeholder="Password" [ngClass]="{ 'is-invalid': isSubmitted && f.password.errors }"/>
+                            <div *ngIf="isSubmitted && f.password.errors" class="invalid-feedback">
+                                <div *ngIf="f.password.errors.required">Password is required</div>
+                            </div>
+                        </div>                        
+
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" [disabled]="(loginFrom.valid && isSubmitted === true)">Submit</button>
+                        
+                        <div>
+                            <a [routerLink]="['/user-register']">Register</a>
+                        </div>
+                        
+                      </form>
+
+                </div>                
+            </div>            
+        </div>
+        <div class="col-3">
+
+        </div>
+    </div>
+</div>

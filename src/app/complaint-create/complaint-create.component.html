@@ -1,0 +1,102 @@
+
+<div>
+    <div class="row">
+        <div class="col-9">
+            <h4> Register Complaint </h4>
+            <div class="row">
+                <div class=col-12>
+                    <div *ngIf="isMessage" class="alert alert-success" role="alert">
+                        Save Succefully.
+                    </div>   
+                </div>
+            </div>
+            <div class="row">
+                
+                <div class="col-12">
+                    
+                    <form [formGroup]="complaintForm" class="form-custom" (ngSubmit)="onSubmit()">
+                        <div class="row" formGroupName="organization">
+                            <div class="col-6 form-group">
+                                <label for="CompanyName">Company:</label>
+                                <input type="text" class="form-control" formControlName="companyName" placeholder="Company Name" [ngClass]="{ 'is-invalid': isSubmitted && g.controls.companyName.errors }"/>
+                                <div *ngIf="isSubmitted && g.controls.companyName.errors" class="invalid-feedback">
+                                    <div *ngIf="g.controls.companyName.errors.required">Company is required</div>
+                                </div>
+                            </div>
+                            <div class="col-6 form-group">
+                                <label for="Website">Website:</label>
+                                <input type="text" class="form-control" formControlName="website" placeholder="Website" [ngClass]="{ 'is-invalid': isSubmitted && g.controls.website.errors }"/>
+                                <div *ngIf="isSubmitted && g.controls.website.errors" class="invalid-feedback">
+                                    <div *ngIf="g.controls.website.errors.required">Website is required</div>
+                                </div>
+                            </div>
+                            <div class="col-6 form-group">
+                                <label for="Legal Name">Legal Name:</label>
+                                <input type="text" class="form-control" formControlName="legalName" placeholder="Legal Name"  [ngClass]="{ 'is-invalid': isSubmitted && g.controls.legalName.errors }" />
+                                <div *ngIf="isSubmitted && g.controls.legalName.errors" class="invalid-feedback">
+                                    <div *ngIf="g.controls.legalName.errors.required">Legal Name is required</div>
+                                </div>
+                            </div>                            
+                            <div class="col-6 form-group">
+                                <label for="Country">Country:</label>
+                                <select formControlName="country" class="form-control" [ngClass]="{ 'is-invalid': isSubmitted && g.controls.country.errors }">
+                                    <option [ngValue]="null"> Select </option>
+                                    <option *ngFor="let cat of countries" [ngValue]="cat.Value">{{cat.Text}}</option>
+                                </select>
+                                <div *ngIf="isSubmitted && g.controls.country.errors" class="invalid-feedback">
+                                    <div *ngIf="g.controls.country.errors.required">Country is required</div>
+                                </div>
+                            </div>
+                            <div class="col-6 form-group">
+                                <label for="Pin Code">Pin Code:</label>
+                                <input type="text" class="form-control" formControlName="pinCode" placeholder="Pin Code" [ngClass]="{ 'is-invalid': isSubmitted && g.controls.pinCode.errors }" />
+                                <div *ngIf="isSubmitted && g.controls.pinCode.errors" class="invalid-feedback">
+                                    <div *ngIf="g.controls.pinCode.errors.required">Pin code is required</div>
+                                </div>
+                            </div>
+                            <div class="col-6 form-group">
+                                <label for="Address">Address:</label>
+                                <input type="text" class="form-control" formControlName="address" placeholder="Address" [ngClass]="{ 'is-invalid': isSubmitted && g.controls.address.errors }"/>
+                                <div *ngIf="isSubmitted && g.controls.address.errors" class="invalid-feedback">
+                                    <div *ngIf="g.controls.address.errors.required">Address is required</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="Category">Category:</label>                                
+                            <select formControlName="category" class="form-control" [ngClass]="{ 'is-invalid': isSubmitted && f.category.errors }">
+                                <option [ngValue]="null"> Select </option>
+                                <option *ngFor="let cat of categories" [ngValue]="cat.Value">{{cat.Text}}</option>
+                            </select>
+                            <div *ngIf="isSubmitted && f.category.errors" class="invalid-feedback">
+                                <div *ngIf="f.category.errors.required">Category is required</div>
+                            </div>                            
+                        </div>                        
+                        <div class="form-group">
+                            <label for="Title">Title:</label>
+                            <input type="text" class="form-control" formControlName="title" placeholder="Complaint Title" id="Title" [ngClass]="{ 'is-invalid': isSubmitted && f.title.errors }">
+                            <div *ngIf="isSubmitted && f.title.errors" class="invalid-feedback">
+                                <div *ngIf="f.title.errors.required">Title is required</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="Details">Details:</label>
+                            <textarea class="form-control" formControlName="content" placeholder="Details" style="height: 200px;"  [ngClass]="{ 'is-invalid': isSubmitted && f.content.errors }"></textarea>
+                            <div *ngIf="isSubmitted && f.content.errors" class="invalid-feedback">
+                                <div *ngIf="f.content.errors.required">Details is required</div>
+                            </div>
+                        </div>
+                                                                        
+                        <button type="submit" class="btn btn-primary" [disabled]="(complaintForm.valid && isSubmitted === true)">Submit</button>
+                        <span>&nbsp;</span>
+                        <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
+                      </form>
+
+                </div>                
+            </div>            
+        </div>
+        <div class="col-3">
+
+        </div>
+    </div>
+</div>

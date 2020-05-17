@@ -1,0 +1,70 @@
+<div>
+    <div class="row">
+        <div class="col-9">
+            <h4> User Registration </h4>
+            <div class="row">
+                <div class=col-12>
+                    <div *ngIf="isMessage" class="alert alert-success" role="alert">
+                        Save Succefully.
+                    </div>   
+                </div>
+            </div>
+            <div class="row">                
+                <div class="col-12">                    
+                    <form [formGroup]="registerUserForm" class="form-custom" (ngSubmit)="onSubmit()">
+                        
+                        <div class="row">
+                        
+                        <div class="form-group col-6">
+                            <label for="FirstName">First Name:</label>
+                            <input type="text" class="form-control" formControlName="firstName" placeholder="First Name" [ngClass]="{ 'is-invalid': isSubmitted && f.firstName.errors }">
+                            <div *ngIf="isSubmitted && f.firstName.errors" class="invalid-feedback">
+                                <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                            </div>
+                        </div>
+                        <div class="form-group col-6">
+                            <label for="LastName">Last Name:</label>
+                            <input class="form-control" formControlName="lastName" placeholder="Last Name" [ngClass]="{ 'is-invalid': isSubmitted && f.lastName.errors }"/>
+                            <div *ngIf="isSubmitted && f.lastName.errors" class="invalid-feedback">
+                                <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group col-12">
+                            <label for="Email">Email:</label>
+                            <input type="email" class="form-control" formControlName="email" placeholder="Email" [ngClass]="{ 'is-invalid': isSubmitted && f.email.errors }" />
+                            <div *ngIf="isSubmitted && f.email.errors" class="invalid-feedback">
+                                <div *ngIf="f.email.errors.required">Email is required</div>
+                            </div>
+                        </div>
+                        <div class="form-group col-6">
+                            <label for="Password">Password:</label>
+                            <input type="password" class="form-control" formControlName="password" placeholder="Password" [ngClass]="{ 'is-invalid': isSubmitted && f.password.errors }"/>
+                            <div *ngIf="isSubmitted && f.password.errors" class="invalid-feedback">
+                                <div *ngIf="f.password.errors.required">Password is required</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-6">
+                            <label for="Confirm Password">Confirm Password:</label>
+                            <input type="password" class="form-control" formControlName="confirmPassword" placeholder="Confirm Password" [ngClass]="{ 'is-invalid': isSubmitted && f.confirmPassword.errors }"/>
+                            <div *ngIf="isSubmitted && f.confirmPassword.errors" class="invalid-feedback">
+                                <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                        <button type="submit" class="btn btn-primary" [disabled]="(registerUserForm.valid && isSubmitted === true)">Submit</button>
+                        <span>&nbsp;</span>
+                        <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
+                      </form>
+
+                </div>                
+            </div>            
+        </div>
+        <div class="col-3">
+
+        </div>
+    </div>
+</div>

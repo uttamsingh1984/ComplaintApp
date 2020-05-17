@@ -1,0 +1,29 @@
+<div *ngIf="org">
+<div class="row">
+    <div class="col-9"> 
+        <div class="card">            
+                <div class="card-body">                    
+                    <h5 class="card-title">{{ org.companyName}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{ org.legalName}}</h6>
+                    <div class="card-text">{{ org.webSite}}</div>                    
+                    <p class="card-text">{{org.address}}</p>                                                    
+                </div>            
+        </div>
+    </div>
+    <div class="col-3">  
+        <div class="card">
+            <div class="card-body">
+                <!-- <h5 class="card-title">{{ complaintDetails.organization.companyName}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{ complaintDetails.organization.legalName}}</h6>
+                <p class="card-text">
+                    {{ complaintDetails.organization.legalName}}  
+                </p> -->
+                <p class="card-text">                    
+                    <button class="btn btn-primary" (click)="registerComplaint()">Register Complaint</button>
+                </p>                
+            </div>            
+        </div>        
+    </div>
+</div>
+
+</div>
